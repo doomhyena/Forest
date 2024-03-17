@@ -4,100 +4,102 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Üdvözöllek a Kalandjátékban!");
-        Console.WriteLine("Egy sötét erdő mélyén vagy. Válaszd meg, merre szeretnél menni:");
-        Console.WriteLine("a) Jobbra fordulj és menj az erdő mélyére.");
-        Console.WriteLine("b) Balra fordulj és próbáld megkerülni az erdőt.");
+        Console.WriteLine("Welcome to the Adventure Game!");
+        Console.WriteLine("You are in a dark forest. Choose your path:");
+        Console.WriteLine("a) Turn right and go deeper into the forest.");
+        Console.WriteLine("b) Turn left and try to go around the forest.");
+        Console.WriteLine("c) Head towards the riverbank.");
+        Console.WriteLine("d) Go up to the mountains.");
 
         string choice = Console.ReadLine().ToLower();
 
         switch (choice)
         {
             case "a":
-                ExploreCave();
+                Console.WriteLine("You go deeper into the forest and find a cave.");
+                Console.WriteLine("You enter the cave. What do you want to do?");
+                Console.WriteLine("a) Explore the cave.");
+                Console.WriteLine("b) Go back to the forest.");
+
+                string caveChoice = Console.ReadLine().ToLower();
+                if (caveChoice == "a")
+                {
+                    Console.WriteLine("You explore the cave and find a hidden treasure chest!");
+                    Console.WriteLine("You open the chest and find a magical gem!");
+                    Console.WriteLine("What do you want to do with the magical gem?");
+                    Console.WriteLine("a) Try to use the magical gem.");
+                    Console.WriteLine("b) Put the magical gem back in the chest.");
+
+                    string gemChoice = Console.ReadLine().ToLower();
+                    if (gemChoice == "a")
+                    {
+                        Console.WriteLine("You use the magical gem and a secret door opens in the cave!");
+                        Console.WriteLine("You go through the door and find yourself in a whole new world! Congratulations, you won!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("You put the magical gem back in the chest and continue your journey in the forest.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("You go back to the forest and continue your journey.");
+                }
                 break;
             case "b":
-                CrossSwamp();
+                Console.WriteLine("You try to go around the forest, but you get lost in a swamp.");
+                Console.WriteLine("What do you want to do?");
+                Console.WriteLine("a) Try to find a way out of the swamp.");
+                Console.WriteLine("b) Try to cross the swamp.");
+
+                string swampChoice = Console.ReadLine().ToLower();
+                if (swampChoice == "a")
+                {
+                    Console.WriteLine("You find a way out of the swamp and continue your journey.");
+                }
+                else
+                {
+                    Console.WriteLine("You try to cross the swamp, but you get stuck and can't get out. Unfortunately, you didn't survive.");
+                }
+                break;
+            case "c":
+                Console.WriteLine("You head towards the riverbank and find a wide river blocking your way.");
+                Console.WriteLine("What do you want to do?");
+                Console.WriteLine("a) Try to cross the river.");
+                Console.WriteLine("b) Go back to the forest.");
+
+                string riverChoice = Console.ReadLine().ToLower();
+                if (riverChoice == "a")
+                {
+                    Console.WriteLine("You try to cross the river, but you can't make it. You have to go back to the forest.");
+                }
+                else
+                {
+                    Console.WriteLine("You go back to the forest and continue your journey.");
+                }
+                break;
+            case "d":
+                Console.WriteLine("You go up to the mountains and discover ancient ruins.");
+                Console.WriteLine("What do you want to do?");
+                Console.WriteLine("a) Explore the ruins.");
+                Console.WriteLine("b) Go back to the forest.");
+
+                string mountainChoice = Console.ReadLine().ToLower();
+                if (mountainChoice == "a")
+                {
+                    Console.WriteLine("You explore the ruins and find an ancient relic!");
+                    Console.WriteLine("Congratulations, you won!");
+                }
+                else
+                {
+                    Console.WriteLine("You go back to the forest and continue your journey.");
+                }
                 break;
             default:
-                Console.WriteLine("Érvénytelen választás. Próbáld újra!");
+                Console.WriteLine("Invalid choice. Please try again.");
                 break;
         }
-    }
 
-    static void ExploreCave()
-    {
-        Console.WriteLine("Az erdő mélyére mész és egy barlangot találsz.");
-        Console.WriteLine("Belépsz a barlangba. Mit szeretnél tenni?");
-        Console.WriteLine("a) Felfedezed a barlangot.");
-        Console.WriteLine("b) Visszatérsz az erdőbe.");
-        string caveChoice = Console.ReadLine().ToLower();
-
-        switch (caveChoice)
-        {
-            case "a":
-                ExploreInsideCave();
-                break;
-            case "b":
-                Console.WriteLine("Visszatérsz az erdőbe és tovább folytatod a kalandot.");
-                break;
-            default:
-                Console.WriteLine("Érvénytelen választás. Próbáld újra!");
-                ExploreCave();
-                break;
-        }
-    }
-
-    static void ExploreInsideCave()
-    {
-        Console.WriteLine("Felfedezed a barlangot és találsz egy rejtett kincsesládát!");
-        Console.WriteLine("Megnyitod a kincsesládát és találsz benne egy varázskövet.");
-        Console.WriteLine("Mit szeretnél tenni a varázskővel?");
-        Console.WriteLine("a) Megpróbálod használni a varázskövet.");
-        Console.WriteLine("b) Visszateszed a kincsesládába a varázskövet.");
-        string gemChoice = Console.ReadLine().ToLower();
-
-        switch (gemChoice)
-        {
-            case "a":
-                UseMagicGem();
-                break;
-            case "b":
-                Console.WriteLine("Visszateszed a varázskövet a kincsesládába. Folytatod az utadat az erdőben.");
-                break;
-            default:
-                Console.WriteLine("Érvénytelen választás. Próbáld újra!");
-                ExploreInsideCave();
-                break;
-        }
-    }
-
-    static void UseMagicGem()
-    {
-        Console.WriteLine("Használod a varázskövet és egy titkos ajtó nyílik a barlangban!");
-        Console.WriteLine("Belépsz az ajtón és találsz egy másik világot. Gratulálok, nyertél!");
-    }
-
-    static void CrossSwamp()
-    {
-        Console.WriteLine("Megpróbálod megkerülni az erdőt, de egy mocsaras területre tévedsz.");
-        Console.WriteLine("Mit szeretnél tenni?");
-        Console.WriteLine("a) Keresel egy utat, hogy kijuss az erdőből.");
-        Console.WriteLine("b) Megpróbálsz átkelni a mocsáron.");
-        string swampChoice = Console.ReadLine().ToLower();
-
-        switch (swampChoice)
-        {
-            case "a":
-                Console.WriteLine("Sikerült megtalálnod az utat, és kijutottál az erdőből. Gratulálok, túlélés!");
-                break;
-            case "b":
-                Console.WriteLine("Megpróbálsz átkelni a mocsáron, de elakadsz. Sajnos, nem sikerült túlélned.");
-                break;
-            default:
-                Console.WriteLine("Érvénytelen választás. Próbáld újra!");
-                CrossSwamp();
-                break;
-        }
+        Console.WriteLine("Thank you for playing!");
     }
 }
