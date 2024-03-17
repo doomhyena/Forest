@@ -64,7 +64,7 @@ class Program
             case "b":
                 Console.WriteLine("You try to go around the forest, but you wander into a swampy area.");
                 Console.WriteLine("What would you like to do?");
-                Console.WriteLine("a) Look for a way to get out of the forest.");
+                Console.WriteLine("a)Look for a way to get out of the forest.");
                 Console.WriteLine("b) Try to cross the swamp.");
 
                 string swampChoice = Console.ReadLine().ToLower();
@@ -77,7 +77,7 @@ class Program
                     Console.WriteLine("You try to cross the swamp, but you get stuck. Unfortunately, you didn't make it.");
                 }
                 break;
-            case "c": // New choice
+            case "c":
                 Console.WriteLine("You head towards the riverbank, but a massive river blocks your path.");
                 Console.WriteLine("What would you like to do?");
                 Console.WriteLine("a) Try to cross the river.");
@@ -93,7 +93,7 @@ class Program
                     Console.WriteLine("You return to the forest and continue your adventure.");
                 }
                 break;
-            case "d": // New choice
+            case "d":
                 Console.WriteLine("You head up into the mountains and stumble upon ancient ruins.");
                 Console.WriteLine("What would you like to do?");
                 Console.WriteLine("a) Explore the ruins.");
