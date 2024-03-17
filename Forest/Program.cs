@@ -4,10 +4,22 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Welcome to the Adventure Game!");
-        Console.WriteLine("You are in a dark forest. Choose your path:");
-        Console.WriteLine("a) Turn right and go deeper into the forest.");
-        Console.WriteLine("b) Turn left and try to go around the forest.");
+        Console.WriteLine("Welcome to the adventure game!");
+        Console.WriteLine("Please enter your name:");
+
+        string playerName;
+        do
+        {
+            playerName = Console.ReadLine();
+            if (playerName.Length < 3 || playerName.Length > 20)
+            {
+                Console.WriteLine("Invalid name. Please enter a name between 3 and 20 letters.");
+            }
+        } while (playerName.Length < 3 || playerName.Length > 20);
+
+        Console.WriteLine($"Hello, {playerName}! What do you want to do?");
+        Console.WriteLine("a) Go deeper into the forest.");
+        Console.WriteLine("b) Go around the forest.");
         Console.WriteLine("c) Head towards the riverbank.");
         Console.WriteLine("d) Go up to the mountains.");
 
@@ -34,7 +46,7 @@ class Program
                     if (gemChoice == "a")
                     {
                         Console.WriteLine("You use the magical gem and a secret door opens in the cave!");
-                        Console.WriteLine("You go through the door and find yourself in a whole new world! Congratulations, you won!");
+                        Console.WriteLine("You go through the door and find yourself in a whole new world! Congratulations, {0}, you won!", playerName);
                     }
                     else
                     {
@@ -59,7 +71,7 @@ class Program
                 }
                 else
                 {
-                    Console.WriteLine("You try to cross the swamp, but you get stuck and can't get out. Unfortunately, you didn't survive.");
+                    Console.WriteLine("You try to cross the swamp, but you get stuck and can't get out. Unfortunately, {0}, you didn't survive.", playerName);
                 }
                 break;
             case "c":
@@ -88,7 +100,7 @@ class Program
                 if (mountainChoice == "a")
                 {
                     Console.WriteLine("You explore the ruins and find an ancient relic!");
-                    Console.WriteLine("Congratulations, you won!");
+                    Console.WriteLine("Congratulations, {0}, you won!", playerName);
                 }
                 else
                 {
