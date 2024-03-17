@@ -4,114 +4,116 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Welcome to the adventure game!");
-        Console.WriteLine("Please enter your name:");
-
-        string playerName;
-        do
+        Console.Write("Please enter your name (minimum 3 letters, maximum 20 letters): ");
+        string name = Console.ReadLine();
+        while (name.Length < 3 || name.Length > 20)
         {
-            playerName = Console.ReadLine();
-            if (playerName.Length < 3 || playerName.Length > 20)
-            {
-                Console.WriteLine("Invalid name. Please enter a name between 3 and 20 letters.");
-            }
-        } while (playerName.Length < 3 || playerName.Length > 20);
+            Console.Write("Invalid name. Please enter a name between 3 and 20 letters: ");
+            name = Console.ReadLine();
+        }
 
-        Console.WriteLine($"Hello, {playerName}! What do you want to do?");
-        Console.WriteLine("a) Go deeper into the forest.");
-        Console.WriteLine("b) Go around the forest.");
-        Console.WriteLine("c) Head towards the riverbank.");
-        Console.WriteLine("d) Go up to the mountains.");
+        Console.Write("Please enter your age (two-digit number): ");
+        string ageInput = Console.ReadLine();
+        while (ageInput.Length != 2 || !int.TryParse(ageInput, out _))
+        {
+            Console.Write("Invalid age. Please enter a two-digit number: ");
+            ageInput = Console.ReadLine();
+        }
+        int age = int.Parse(ageInput);
+
+        Console.WriteLine("Welcome to the Adventure Game, " + name + "!");
+        Console.WriteLine("You are deep in a dark forest. Choose where you want to go:");
+        Console.WriteLine("a) Turn right and go deep into the forest.");
+        Console.WriteLine("b) Turn left and try to go around the forest.");
 
         string choice = Console.ReadLine().ToLower();
 
         switch (choice)
         {
             case "a":
-                Console.WriteLine("You go deeper into the forest and find a cave.");
-                Console.WriteLine("You enter the cave. What do you want to do?");
+                Console.WriteLine("You go deep into the forest and find a cave.");
+                Console.WriteLine("You enter the cave. What would you like to do?");
                 Console.WriteLine("a) Explore the cave.");
-                Console.WriteLine("b) Go back to the forest.");
+                Console.WriteLine("b) Return to the forest.");
 
                 string caveChoice = Console.ReadLine().ToLower();
                 if (caveChoice == "a")
                 {
                     Console.WriteLine("You explore the cave and find a hidden treasure chest!");
-                    Console.WriteLine("You open the chest and find a magical gem!");
-                    Console.WriteLine("What do you want to do with the magical gem?");
-                    Console.WriteLine("a) Try to use the magical gem.");
-                    Console.WriteLine("b) Put the magical gem back in the chest.");
+                    Console.WriteLine("You open the treasure chest and find a magic gem inside.");
+                    Console.WriteLine("What would you like to do with the magic gem?");
+                    Console.WriteLine("a) Try to use the magic gem.");
+                    Console.WriteLine("b) Put the magic gem back into the treasure chest.");
 
                     string gemChoice = Console.ReadLine().ToLower();
                     if (gemChoice == "a")
                     {
-                        Console.WriteLine("You use the magical gem and a secret door opens in the cave!");
-                        Console.WriteLine("You go through the door and find yourself in a whole new world! Congratulations, {0}, you won!", playerName);
+                        Console.WriteLine("You use the magic gem and a secret door opens in the cave!");
+                        Console.WriteLine("You enter the door and find yourself in another world. Congratulations, you win!");
                     }
                     else
                     {
-                        Console.WriteLine("You put the magical gem back in the chest and continue your journey in the forest.");
+                        Console.WriteLine("You put the magic gem back into the treasure chest. You continue your journey in the forest.");
                     }
                 }
                 else
                 {
-                    Console.WriteLine("You go back to the forest and continue your journey.");
+                    Console.WriteLine("You return to the forest and continue your adventure.");
                 }
                 break;
             case "b":
-                Console.WriteLine("You try to go around the forest, but you get lost in a swamp.");
-                Console.WriteLine("What do you want to do?");
-                Console.WriteLine("a) Try to find a way out of the swamp.");
+                Console.WriteLine("You try to go around the forest, but you wander into a swampy area.");
+                Console.WriteLine("What would you like to do?");
+                Console.WriteLine("a) Look for a way to get out of the forest.");
                 Console.WriteLine("b) Try to cross the swamp.");
 
                 string swampChoice = Console.ReadLine().ToLower();
                 if (swampChoice == "a")
                 {
-                    Console.WriteLine("You find a way out of the swamp and continue your journey.");
+                    Console.WriteLine("You manage to find a way out and escape the forest. Congratulations, you survived!");
                 }
                 else
                 {
-                    Console.WriteLine("You try to cross the swamp, but you get stuck and can't get out. Unfortunately, {0}, you didn't survive.", playerName);
+                    Console.WriteLine("You try to cross the swamp, but you get stuck. Unfortunately, you didn't make it.");
                 }
                 break;
-            case "c":
-                Console.WriteLine("You head towards the riverbank and find a wide river blocking your way.");
-                Console.WriteLine("What do you want to do?");
+            case "c": // New choice
+                Console.WriteLine("You head towards the riverbank, but a massive river blocks your path.");
+                Console.WriteLine("What would you like to do?");
                 Console.WriteLine("a) Try to cross the river.");
-                Console.WriteLine("b) Go back to the forest.");
+                Console.WriteLine("b) Return to the forest.");
 
                 string riverChoice = Console.ReadLine().ToLower();
                 if (riverChoice == "a")
                 {
-                    Console.WriteLine("You try to cross the river, but you can't make it. You have to go back to the forest.");
+                    Console.WriteLine("You attempt to cross the river, but unfortunately, you fail. You return to the forest.");
                 }
                 else
                 {
-                    Console.WriteLine("You go back to the forest and continue your journey.");
+                    Console.WriteLine("You return to the forest and continue your adventure.");
                 }
                 break;
-            case "d":
-                Console.WriteLine("You go up to the mountains and discover ancient ruins.");
-                Console.WriteLine("What do you want to do?");
+            case "d": // New choice
+                Console.WriteLine("You head up into the mountains and stumble upon ancient ruins.");
+                Console.WriteLine("What would you like to do?");
                 Console.WriteLine("a) Explore the ruins.");
-                Console.WriteLine("b) Go back to the forest.");
+                Console.WriteLine("b) Return to the forest.");
 
                 string mountainChoice = Console.ReadLine().ToLower();
                 if (mountainChoice == "a")
                 {
-                    Console.WriteLine("You explore the ruins and find an ancient relic!");
-                    Console.WriteLine("Congratulations, {0}, you won!", playerName);
+                    Console.WriteLine("You explore the ruins and find a forgotten relic. Congratulations, you win!");
                 }
                 else
                 {
-                    Console.WriteLine("You go back to the forest and continue your journey.");
+                    Console.WriteLine("You return to the forest and continue your adventure.");
                 }
                 break;
             default:
-                Console.WriteLine("Invalid choice. Please try again.");
+                Console.WriteLine("Invalid choice. Please try again!");
                 break;
         }
 
-        Console.WriteLine("Thank you for playing!");
+        Console.WriteLine("Thanks for playing!");
     }
 }
